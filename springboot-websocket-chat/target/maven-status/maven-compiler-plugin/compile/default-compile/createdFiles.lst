@@ -1,0 +1,4 @@
+com\hehe\chat\Message.class
+com\hehe\chat\WebSocketConfig.class
+com\hehe\chat\WebSocketChatServer.class
+com\hehe\WebSocketChatApplication.class
