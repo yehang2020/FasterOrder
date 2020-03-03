@@ -36,6 +36,13 @@ public class WebSocketChatApplication {
         mav.addObject("webSocketUrl", "ws://"+InetAddress.getLocalHost().getHostAddress()+":"+request.getServerPort()+request.getContextPath()+"/chat");
         return mav;
     }
+    
+    @GetMapping("/ack")
+    public ModelAndView ack(HttpServletRequest request) throws UnknownHostException {
+        ModelAndView mav = new ModelAndView("/ack");
+        mav.addObject("webSocketUrl", "ws://"+InetAddress.getLocalHost().getHostAddress()+":"+request.getServerPort()+request.getContextPath()+"/ack");
+        return mav;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(WebSocketChatApplication.class, args);
