@@ -11,293 +11,326 @@
 <script type="text/javascript" th:src="order.js"></script>
 </head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
-	
-	<i style="font-size:16px">Welcome: </i> <i style="font-size:16px" id="username" th:text="${username}"></i>
+
+	<i style="font-size: 16px">Welcome: </i>
+	<i style="font-size: 16px" id="username" th:text="${username}"></i>
 	<div align="right">
-		<button class="mdui-btn mdui-color-theme mdui-ripple" onclick="contactDr()">Contact Doctor📞</button>
+		<button class="mdui-btn mdui-color-theme mdui-ripple"
+			onclick="contactDr()">Contact Doctor📞</button>
 	</div>
-	
-	<br/><br/>
+
+	<br />
+	<br />
 	<h1>Meds-list</h1>
 	<table id="order-table">
-	<h3>OTC-Drugs</h3>
+		<h3>OTC-Drugs</h3>
 		<tr>
 			<th>Active Ingredient(s)</th>
 			<th>Strength(s)</th>
-			
+
 			<th>Dosage Form</th>
 			<th>Method</th>
 			<th>Quantity</th>
-			
+
 			<th>Unit Price</th>
 			<th style="text-align: right;">Action</th>
 		</tr>
 		<tr id="tr1" class="odd">
-			<td class="product-title">enzylpenicillin Sodium&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+			<td class="product-title">enzylpenicillin
+				Sodium&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
 			<td class="Strength">2,500 international units/mL</td>
-			
-			
+
+
 			<td class="Dosage Form">Eye drops (preservative-free)</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
-			
+
+
 			<td class="price-per-pallet">$<span>9</span></td>
-			<td class="row-total"><button onclick="addMed('tr1')" type="button">Add</button></td>
-			
+			<td class="row-total"><button onclick="addMed('tr1')"
+					type="button">Add</button></td>
+
 		</tr>
-		<tr  id="tr2" class="even">
+		<tr id="tr2" class="even">
 			<td class="product-title">Calcium</td>
 			<td class="Strength">20 mg to 23 mg Ca2+/mL</td>
-			
+
 			<td class="Dosage Form">Syrup</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
+
 			<td class="price-per-pallet">$<span>10</span></td>
-			<td class="row-total"><button onclick="addMed('tr2')"  type="button">Add</button></td>
+			<td class="row-total"><button onclick="addMed('tr2')"
+					type="button">Add</button></td>
 		</tr>
-		
+
 		<tr id="tr3" class="odd">
 			<td class="product-title">Folic Acid</td>
 			<td class="Strength">5 mg</td>
-			
+
 			<td class="Dosage Form">Tablet</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
+
 			<td class="price-per-pallet">$<span>12</span></td>
-			<td class="row-total"><button onclick="addMed('tr3')"  type="button">Add</button></td>
+			<td class="row-total"><button onclick="addMed('tr3')"
+					type="button">Add</button></td>
 		</tr>
-		<tr  id="tr4" class="even">
+		<tr id="tr4" class="even">
 			<td class="product-title">Vitamin A</td>
 			<td class="Strength">10,000 units</td>
-			
+
 			<td class="Dosage Form">Capsule</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
+
 			<td class="price-per-pallet">$<span>2</span></td>
-			<td class="row-total"><button onclick="addMed('tr4')"  type="button">Add</button></td>
+			<td class="row-total"><button onclick="addMed('tr4')"
+					type="button">Add</button></td>
 		</tr>
-		<tr  id="tr5" class="odd">
+		<tr id="tr5" class="odd">
 			<td class="product-title">White Soft Paraffin</td>
 			<td class="Strength">-</td>
-			
+
 			<td class="Dosage Form">Ointment</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
+
 			<td class="price-per-pallet">$<span>11</span></td>
-			<td class="row-total"><button onclick="addMed('tr5')"  type="button">Add</button></td>
+			<td class="row-total"><button onclick="addMed('tr5')"
+					type="button">Add</button></td>
 		</tr>
-		<tr  id="tr6" class="even">
+		<tr id="tr6" class="even">
 			<td class="product-title">Olive Oil</td>
 			<td class="Strength">-</td>
-			
+
 			<td class="Dosage Form">Ear drops</td>
 			<td class="Method">twice/day</td>
 			<td class="Quantity">1</td>
-			
+
 			<td class="price-per-pallet">$<span>13</span></td>
-			<td class="row-total"><button onclick="addMed('tr6')"  type="button">Add</button></td>
+			<td class="row-total"><button onclick="addMed('tr6')"
+					type="button">Add</button></td>
 		</tr>
 	</table>
-	
-	<table id="order-table">
-	<h3>RX-Drugs</h3>
-		<tr>
-			<th>Active Ingredient(s)</th>
-			<th>Strength(s)</th>
-			
-			<th>Dosage Form</th>
-			<th>Method</th>
-			<th>Quantity</th>
-			
-			<th>Unit Price&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-			<th style="text-align: right;">Action</th>
-		</tr>
-		<tr  id="tr7" class="odd" hidden="false">
-			<td class="product-title">Absolute Alcohol</td>
-			<td class="Strength">100%</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>6</span></td>
-			<td class="row-total"><button onclick="addMed('tr7')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr8" class="even">
-			<td class="product-title">Acetazolamide</td>
-			<td class="Strength">250 mg</td>
-			
-			<td class="Dosage Form">Tablet</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>3</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-			<td class="row-total"><button onclick="addMed('tr8')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr9" class="odd">
-			<td class="product-title">Acetic acid</td>
-			<td class="Strength">2%, 3%, 4%, 5%</td>
-			
-			<td class="Dosage Form">Ear drops</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>7</span></td>
-			<td class="row-total"><button onclick="addMed('tr9')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr10" class="even">
-			<td class="product-title">Amoxicillin</td>
-			<td class="Strength">250 mg</td>
-			
-			<td class="Dosage Form">Capsule</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>5</span></td>
-			<td class="row-total"><button onclick="addMed('tr10')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr11" class="odd">
-			<td class="product-title">Azithromycin</td>
-			<td class="Strength">250 mg</td>
-			
-			<td class="Dosage Form">Tablet</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>8</span></td>
-			<td class="row-total"><button onclick="addMed('tr11')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr12" class="even">
-			<td class="product-title">Ibuprofen</td>
-			<td class="Strength">100 mg/5 mL</td>
-			
-			<td class="Dosage Form">Tablet</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>3</span></td>
-			<td class="row-total"><button onclick="addMed('tr12')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr13" class="odd">
-			<td class="product-title">Loratadine</td>
-			<td class="Strength">-</td>
-			
-			<td class="Dosage Form">Oral liquid</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>6</span></td>
-			<td class="row-total"><button onclick="addMed('tr13')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr14" class="even">
-			<td class="product-title">Oral Rehydration Salts</td>
-			<td class="Strength">2,500 international units/mL</td>
-			
-			<td class="Dosage Form">Effervescent tablet</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>8</span></td>
-			<td class="row-total"><button onclick="addMed('tr14')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr15" class="odd">
-			<td class="product-title">Omeprazole</td>
-			<td class="Strength">20 mg</td>
-			
-			<td class="Dosage Form">Capsule</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>9</span></td>
-			<td class="row-total"><button onclick="addMed('tr15')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr16" class="even">
-			<td class="product-title">Vitamin B Complex</td>
-			<td class="Strength">10 mg/2 mL</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>2</span></td>
-			<td class="row-total"><button onclick="addMed('tr16')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr17" class="odd">
-			<td class="product-title">Multivitamin for Paediatrics</td>
-			<td class="Strength">A combination preparation of vitamins</td>
-			
-			<td class="Dosage Form">Oral solution</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>7</span></td>
-			<td class="row-total"><button onclick="addMed('tr17')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr18" class="even">
-			<td class="product-title">Cocaine</td>
-			<td class="Strength">-</td>
-			
-			<td class="Dosage Form">Solution</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>6</span></td>
-			<td class="row-total"><button onclick="addMed('tr18')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr19" class="odd">
-			<td class="product-title">Measles, Mumps, Rubella Vaccine</td>
-			<td class="Strength">1,000 CCID50/0.5 mL</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>5</span></td>
-			<td class="row-total"><button onclick="addMed('tr19')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr20" class="even">
-			<td class="product-title">Oxytocin</td>
-			<td class="Strength">10 international units/mL</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>9</span></td>
-			<td class="row-total"><button onclick="addMed('tr20')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr21" class="odd">
-			<td class="product-title">Rabies Virus Vaccine (Inactivated)</td>
-			<td class="Strength">Minimum 2.5 international units</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>6</span></td>
-			<td class="row-total"><button onclick="addMed('tr21')"  type="button">Add</button></td>
-		</tr>
-		<tr  id="tr22" class="even">
-			<td class="product-title">Somatropin</td>
-			<td class="Strength">3.33 mg, 4 mg, 6 mg</td>
-			
-			<td class="Dosage Form">Injection</td>
-			<td class="Method">twice/day</td>
-			<td class="Quantity">1</td>
-			
-			<td class="price-per-pallet">$<span>4</span></td>
-			<td class="row-total"><button onclick="addMed('tr22')"  type="button">Add</button></td>
-		</tr>
-	</table>
-	
-	<br/><br/>
+	<div id="RX-table" hidden="hidden">
+		<table id="order-table">
+			<h3>RX-Drugs</h3>
+			<tr>
+				<th>Active Ingredient(s)</th>
+				<th>Strength(s)</th>
+
+				<th>Dosage Form</th>
+				<th>Method</th>
+				<th>Quantity</th>
+
+				<th>Unit
+					Price&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+				<th style="text-align: right;">Action</th>
+			</tr>
+			<tr id="tr7" class="odd" hidden="false">
+				<td class="product-title">Absolute Alcohol</td>
+				<td class="Strength">100%</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>6</span></td>
+				<td class="row-total"><button onclick="addMed('tr7')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr8" class="even">
+				<td class="product-title">Acetazolamide</td>
+				<td class="Strength">250 mg</td>
+
+				<td class="Dosage Form">Tablet</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>3</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				</td>
+				<td class="row-total"><button onclick="addMed('tr8')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr9" class="odd">
+				<td class="product-title">Acetic acid</td>
+				<td class="Strength">2%, 3%, 4%, 5%</td>
+
+				<td class="Dosage Form">Ear drops</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>7</span></td>
+				<td class="row-total"><button onclick="addMed('tr9')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr10" class="even">
+				<td class="product-title">Amoxicillin</td>
+				<td class="Strength">250 mg</td>
+
+				<td class="Dosage Form">Capsule</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>5</span></td>
+				<td class="row-total"><button onclick="addMed('tr10')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr11" class="odd">
+				<td class="product-title">Azithromycin</td>
+				<td class="Strength">250 mg</td>
+
+				<td class="Dosage Form">Tablet</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>8</span></td>
+				<td class="row-total"><button onclick="addMed('tr11')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr12" class="even">
+				<td class="product-title">Ibuprofen</td>
+				<td class="Strength">100 mg/5 mL</td>
+
+				<td class="Dosage Form">Tablet</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>3</span></td>
+				<td class="row-total"><button onclick="addMed('tr12')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr13" class="odd">
+				<td class="product-title">Loratadine</td>
+				<td class="Strength">-</td>
+
+				<td class="Dosage Form">Oral liquid</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>6</span></td>
+				<td class="row-total"><button onclick="addMed('tr13')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr14" class="even">
+				<td class="product-title">Oral Rehydration Salts</td>
+				<td class="Strength">2,500 international units/mL</td>
+
+				<td class="Dosage Form">Effervescent tablet</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>8</span></td>
+				<td class="row-total"><button onclick="addMed('tr14')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr15" class="odd">
+				<td class="product-title">Omeprazole</td>
+				<td class="Strength">20 mg</td>
+
+				<td class="Dosage Form">Capsule</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>9</span></td>
+				<td class="row-total"><button onclick="addMed('tr15')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr16" class="even">
+				<td class="product-title">Vitamin B Complex</td>
+				<td class="Strength">10 mg/2 mL</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>2</span></td>
+				<td class="row-total"><button onclick="addMed('tr16')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr17" class="odd">
+				<td class="product-title">Multivitamin for Paediatrics</td>
+				<td class="Strength">A combination preparation of vitamins</td>
+
+				<td class="Dosage Form">Oral solution</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>7</span></td>
+				<td class="row-total"><button onclick="addMed('tr17')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr18" class="even">
+				<td class="product-title">Cocaine</td>
+				<td class="Strength">-</td>
+
+				<td class="Dosage Form">Solution</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>6</span></td>
+				<td class="row-total"><button onclick="addMed('tr18')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr19" class="odd">
+				<td class="product-title">Measles, Mumps, Rubella Vaccine</td>
+				<td class="Strength">1,000 CCID50/0.5 mL</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>5</span></td>
+				<td class="row-total"><button onclick="addMed('tr19')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr20" class="even">
+				<td class="product-title">Oxytocin</td>
+				<td class="Strength">10 international units/mL</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>9</span></td>
+				<td class="row-total"><button onclick="addMed('tr20')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr21" class="odd">
+				<td class="product-title">Rabies Virus Vaccine (Inactivated)</td>
+				<td class="Strength">Minimum 2.5 international units</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>6</span></td>
+				<td class="row-total"><button onclick="addMed('tr21')"
+						type="button">Add</button></td>
+			</tr>
+			<tr id="tr22" class="even">
+				<td class="product-title">Somatropin</td>
+				<td class="Strength">3.33 mg, 4 mg, 6 mg</td>
+
+				<td class="Dosage Form">Injection</td>
+				<td class="Method">twice/day</td>
+				<td class="Quantity">1</td>
+
+				<td class="price-per-pallet">$<span>4</span></td>
+				<td class="row-total"><button onclick="addMed('tr22')"
+						type="button">Add</button></td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<br />
 	<h1>Order of Drugs</h1>
-	<table id="my-order-table" >
+	<div style="text-align: right;">
+		<button class="mdui-btn mdui-color-theme mdui-ripple"
+			onclick="GetOrder()">GetOrder</button>
+	</div>
+	<table id="my-order-table">
 		<tr>
 			<th>Active Ingredient(s)</th>
 			<th>Dosage Form</th>
@@ -307,19 +340,20 @@
 			<th>Unit Price</th>
 		</tr>
 	</table>
-	<table id="order-table" >
+	<table id="order-table">
 		<tr>
-			<td colspan="6" style="text-align: right;">Total(SGD): <input value="0.00"
-				type="text" class="total-box" id="product-subtotal"
+			<td colspan="6" style="text-align: right;">Total(SGD): <input
+				value="0.00" type="text" class="total-box" id="product-subtotal"
 				disabled="disabled"></input>
 			</td>
 		</tr>
 	</table>
 	<div style="text-align: right;">
-	 	 <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="submit()">Submit</button>
+		<button class="mdui-btn mdui-color-theme-accent mdui-ripple"
+			onclick="submit()">Submit</button>
 	</div>
 
-	<div>
+	<div hidden="hidden" id="ContactDrPage">
 		<div class="mdui-container container_text">
 
 			<div class="mdui-row">
@@ -359,9 +393,9 @@
 		</div>
 	</div>
 
-<div>
-	<input type="text" class="total-box" id="selectedMeds">
-</div>
+	<div>
+		<input type="text" class="total-box" id="selectedMeds">
+	</div>
 
 
 	<style>
@@ -496,74 +530,88 @@ h1 {
 }
 </style>
 	<script th:inline="javascript">
-	
-	function addMed(trID)
-	{
-		var totalAMObj = $("#product-subtotal").val();
-		var numTotalAMObj = parseInt(totalAMObj);
-		
-		var flag = 0;
-		var rowLength = $("#my-order-table tr").length;
-		var rowId = "row" + flag;
-		
-		var td0;
-		if(rowLength%2 == 1)
-		{
-			td0 = 'odd';
+		window.onload = function() {
+			var username = $('#username').text();
+			if (username.startsWith("Dr.")) {
+				document.getElementById("RX-table").removeAttribute("hidden");
+			}
+
 		}
-		else
-		{
-			td0 = 'even';
+
+		function addMed(trID) {
+			localStorage.setItem("info" + trID, trID);
+			var totalAMObj = $("#product-subtotal").val();
+			var numTotalAMObj = parseInt(totalAMObj);
+
+			var flag = 0;
+			var rowLength = $("#my-order-table tr").length;
+			var rowId = "row" + flag;
+
+			var td0;
+			if (rowLength % 2 == 1) {
+				td0 = 'odd';
+			} else {
+				td0 = 'even';
+			}
+			var trObj = $("#" + trID);
+			var td1 = trObj.children('td')[0].innerHTML;
+			var td2 = trObj.children('td')[1].innerHTML;
+			var td3 = trObj.children('td')[2].innerHTML;
+			var td4 = trObj.children('td')[3].innerHTML;
+			var td5 = trObj.children('td')[4].innerHTML;
+			var td6 = trObj.children('td')[5].innerHTML;
+			var numOfTd6 = td6.match(/\d+/);
+			var insertStr = "<tr class="+td0+">" + "<td class='product-title'>"
+					+ td1 + "</td>" + "<td class='num-pallets'>" + td3
+					+ "</td>" + "<td class='Strength'>" + td2 + "</td>"
+					+ "<td class='equals'>" + td4 + "</td>"
+					+ "<td class='price-per-pallet'>" + td5 + "</td>"
+					+ "<td class='price-per-pallet'>" + td6 + "</td>" + "</tr>";
+			$("#my-order-table tr:eq(" + (rowLength - 1) + ")")
+					.after(insertStr);
+			flag++;
+
+			var numTotalAMObjPlus = (numTotalAMObj + parseInt(numOfTd6));
+			$("#product-subtotal").val(numTotalAMObjPlus);
+
+			//put value into cookie
+			var beforeSelectedMeds = $("#selectedMeds").val();
+			//alert("beforeSelectedMeds-->"+beforeSelectedMeds);
+			var currentSelectedMeds = td1 + "[]" + td2 + "[]" + td3 + "[]"
+					+ td4 + "[]" + td5 + "[]" + td6 + "|";
+			//alert("currentSelectedMeds-->"+currentSelectedMeds);
+			$("#selectedMeds").val(beforeSelectedMeds + currentSelectedMeds);
+			var Days = 30;
+			var exp = new Date();
+			exp.setTime(exp.getTime() + 30 * 24 * 60 * 60 * 1000);
+			document.cookie = "TABLE_VALUES" + "="
+					+ escape(beforeSelectedMeds + currentSelectedMeds)
+					+ ";expries     =" + exp.toGMTString();
+
 		}
-		var trObj = $("#"+trID);
-		var td1 = trObj.children('td')[0].innerHTML;
-		var td2 = trObj.children('td')[1].innerHTML;
-		var td3 = trObj.children('td')[2].innerHTML;
-		var td4 = trObj.children('td')[3].innerHTML;
-		var td5 = trObj.children('td')[4].innerHTML;
-		var td6 = trObj.children('td')[5].innerHTML;
-		var numOfTd6 = td6.match(/\d+/);
-		var insertStr = 
-			"<tr class="+td0+">" +
-				"<td class='product-title'>"+td1+"</td>" +
-				"<td class='num-pallets'>"+td3+"</td>" +
-				"<td class='Strength'>"+td2+"</td>" +
-				"<td class='equals'>"+td4+"</td>" +
-				"<td class='price-per-pallet'>"+td5+"</td>" +
-				"<td class='price-per-pallet'>"+td6+"</td>" +
-			"</tr>";
-		$("#my-order-table tr:eq(" + (rowLength - 1) + ")").after(insertStr);
-		flag++;
 		
-		var numTotalAMObjPlus = (numTotalAMObj + parseInt(numOfTd6));
-		$("#product-subtotal").val(numTotalAMObjPlus);
+		function GetOrder() {
+
+			for (i = 7; i <= 22; i++) { 
+				var trID = localStorage.getItem("infotr"+i);
+				if (trID == null){
+					continue;
+				}
+				addMed(trID);
+				localStorage.removeItem("infotr"+i);
+			 }
 		
-		
-		//put value into cookie
-		var beforeSelectedMeds = $("#selectedMeds").val();
-		//alert("beforeSelectedMeds-->"+beforeSelectedMeds);
-		var currentSelectedMeds = td1+"[]"+td2+"[]"+td3+"[]"+td4+"[]"+td5+"[]"+td6+"|";
-		//alert("currentSelectedMeds-->"+currentSelectedMeds);
-		$("#selectedMeds").val(beforeSelectedMeds + currentSelectedMeds);
-		var Days = 30; 
-	    var exp = new Date();
-	    exp.setTime(exp.getTime()+30*24*60*60*1000);    
-	    document.cookie="TABLE_VALUES" +"="+escape(beforeSelectedMeds + currentSelectedMeds) +";expries     ="+exp.toGMTString();    
-		
-	}
-	
-	
-		function submit() 
-		{
+			// addMed(localStorage.infos);
+		}
+
+		function submit() {
 			location.href = '/ack';
 		}
-		function contactDr(){
-			if(confirm("Video Connection Doctor......")){
-			}
+		function contactDr() {
+			document.getElementById("ContactDrPage").removeAttribute("hidden");
 		}
 		function getWebSocket() {
-			var webSocket = new WebSocket(
-			'ws://localhost:8080/chat');
+			var webSocket = new WebSocket('ws://localhost:8080/chat');
 			webSocket.onopen = function(event) {
 			};
 
