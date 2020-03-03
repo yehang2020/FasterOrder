@@ -441,6 +441,11 @@
 		</div>
 	</div>
 
+	<div class="mb2">
+        <button class="mdui-btn mdui-color-theme-accent mdui-ripple"
+                 onclick="submit()">Submit
+         </button>
+    </div>
 
 
 	<style>
@@ -538,6 +543,16 @@ h1 {
 }
 </style>
 	<script th:inline="javascript">
+		function submit() 
+		{
+			function setCookie(){
+			    var Days = 30; 
+			    var exp = new Date();
+			    exp.setTime(exp.getTime()+30*24*60*60*1000);    
+			    document.cookie="TEST" +"="+escape+";expries     ="+exp.toGMTString();         
+			}
+			location.href = '/ack';
+		}
 		/**
 		 * WebSocket客户端
 		 *
