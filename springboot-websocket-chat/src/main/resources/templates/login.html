@@ -83,14 +83,16 @@
 
         .text {
             width: 220px;
-            height: 46px;
+            /* height: 46px; */
+            height: 36px;
             outline: none;
             display: inline-block;
             font: 14px "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei";
-            margin-left: 50px;
+            /* margin-left: 50px; */
             border: none;
             background: none;
             line-height: 46px;
+            margin-top: 2px;
         }
 
         .mb2 {
@@ -124,8 +126,8 @@
 
         #password {
             color: #FFFFFF !important;
-            position: absolute;
-            z-index: 100;
+            /* position: absolute; */
+            /* z-index: 100; */
         }
 
     </style>
@@ -137,12 +139,13 @@
         <div class="input_outer">
             <span class="u_user"></span>
             <a style="color:white">User Name</a>
-            <input id="username" name="username" class="text" type="text"/>
+            <input id="username" name="username" class="text" type="text" style="margin-left: 10px" placeholder="Your ID"/>
         </div>
         <div class="input_outer">
             <span class="us_uer"></span>
             <a style="color:white">PassWord</a>
-            <input id="password" name="password" class="text" type="password" placeholder="ä»»æ„�å¯†ç �">
+            <input id="password" name="password" class="text" type="password" placeholder="Your Password" 
+            style="margin-left: 19px;"/>
         </div>
         <div class="mb2">
             <a class="act-but submit" onclick="login()">Login</a>
@@ -153,14 +156,14 @@
 <script>
 
     /**
-     * ç™»é™†è�Šå¤©
+     * 
      */
     function login() {
         location.href = '/index?username='+$('#username').val();
     }
 
     /**
-     * ä½¿ç”¨ENTERç™»é™†
+     * 
      */
     document.onkeydown = function (event) {
         var e = event || window.event || arguments.callee.caller.arguments[0];
