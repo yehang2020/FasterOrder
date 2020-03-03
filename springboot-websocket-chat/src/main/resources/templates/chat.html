@@ -359,6 +359,9 @@
 		</div>
 	</div>
 
+<div>
+	<input type="text" class="total-box" id="selectedMeds">
+</div>
 
 
 	<style>
@@ -536,17 +539,22 @@ h1 {
 		$("#product-subtotal").val(numTotalAMObjPlus);
 		
 		
+		//put value into cookie
+		var beforeSelectedMeds = $("#selectedMeds").val();
+		//alert("beforeSelectedMeds-->"+beforeSelectedMeds);
+		var currentSelectedMeds = td1+"[]"+td2+"[]"+td3+"[]"+td4+"[]"+td5+"[]"+td6+"|";
+		//alert("currentSelectedMeds-->"+currentSelectedMeds);
+		$("#selectedMeds").val(beforeSelectedMeds + currentSelectedMeds);
+		var Days = 30; 
+	    var exp = new Date();
+	    exp.setTime(exp.getTime()+30*24*60*60*1000);    
+	    document.cookie="TABLE_VALUES" +"="+escape(beforeSelectedMeds + currentSelectedMeds) +";expries     ="+exp.toGMTString();    
+		
 	}
 	
 	
 		function submit() 
 		{
-			function setCookie(){
-			    var Days = 30; 
-			    var exp = new Date();
-			    exp.setTime(exp.getTime()+30*24*60*60*1000);    
-			    document.cookie="TEST" +"="+escape+";expries     ="+exp.toGMTString();         
-			}
 			location.href = '/ack';
 		}
 		function contactDr(){

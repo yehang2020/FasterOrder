@@ -15,7 +15,7 @@
 	<h1>Please Confirm Below Informations </h1>
 	<br/>
 	<h2>Order Drugs</h2>
-	<table id="order-table">
+	<table id="ack-order-table">
 		<tr>
 			<th>Active Ingredient(s)</th>
 			<th>Dosage Form</th>
@@ -23,7 +23,7 @@
 			<th>Quantity</th>
 			<th>Unit Price</th>
 		</tr>
-		<tr class="odd">
+		<!-- <tr class="odd">
 			<td class="product-title">enzylpenicillin Sodium</td>
 			<td class="Strength">2,500 international units/mL</td>
 			<td class="Strength">4 mg/mL</td>
@@ -64,7 +64,7 @@
 			<td class="Strength">4 mg/mL</td>
 			<td>1</td>
 			<td class="price-per-pallet">$<span>5</span></td>
-		</tr>
+		</tr> -->
 	</table>
 	<br/>
 	<h2>Shipping Address</h2>
@@ -173,6 +173,44 @@ h1 {
 	font-size: 14px;
 }
 
+/*ack-order-table */
+#ack-order-table {
+	width: 100%;
+}
+
+#ack-order-table td {
+	padding: 5px;
+}
+
+#ack-order-table th {
+	padding: 5px;
+	background: black;
+	color: white;
+	text-align: left;
+}
+
+#ack-order-table td.row-total {
+	text-align: right;
+}
+
+#ack-order-table td input {
+	width: 75px;
+	text-align: center;
+}
+
+#ack-order-table tr.even td {
+	background: #eee;
+}
+
+#ack-order-table td .total-box, .total-box {
+	border: 3px solid green;
+	width: 70px;
+	padding: 3px;
+	margin: 5px 0 5px 0;
+	text-align: center;
+	font-size: 14px;
+}
+
 #shipping-subtotal {
 	margin: 0;
 }
@@ -211,10 +249,75 @@ h1 {
 }
 </style>
 <script th:inline="javascript">
+		$(document).ready(
+				function()
+				{
+					var arrStr = document.cookie.split("; ");
+					for (var i = 0; i < arrStr.length; i++)
+					{
+				        var temp = arrStr[i].split("=");
+				        //alert("temp---->"+temp)
+				        if (temp[0] == "TABLE_VALUES")
+				        {
+				        	var x1 = unescape(temp[1]);
+				        	var allRowDT=x1.split("|");
+				        	//alert("x1--->"+x1);
+				        	//alert("allRowDT--->"+allRowDT);
+				        	//alert("allRowDT length--->"+allRowDT.length);
+				        	for(var j=0; j<allRowDT.length; j++)
+				        	{
+				        		if(!($.isEmptyObject(allRowDT[j])))
+				        		{
+				        			//alert("j---->"+j);
+				        			var oneRowDT = allRowDT[j];
+				        			var allTDInOneRow = oneRowDT.split("[]");
+				        			for(var h=0; h<allTDInOneRow.length; h++)
+				        			{
+				        				var oneTDDT = allTDInOneRow[h];
+				        				//alert("oneTDDT--->"+oneTDDT);
+				        			}
+				        			/*
+				        			<td class="product-title">enzylpenicillin Sodium</td>
+				        			<td class="Strength">2,500 international units/mL</td>
+				        			<td class="Strength">4 mg/mL</td>
+				        			<td>1</td>
+				        			<td class="price-per-pallet">$<span>5</span></td>
+				        			*/
+				        			var td0;
+				        			//alert("lenght--->"+lenght);
+				        			if(j%2 == 1)
+				        			{
+				        				td0 = 'odd';
+				        			}
+				        			else
+				        			{
+				        				td0 = 'even';
+				        			}
+				        			var insertStr = 
+				        				"<tr class="+td0+">" +
+				        					"<td class='product-title'>"+allTDInOneRow[0]+"</td>" +
+				        					"<td class='num-pallets'>"+allTDInOneRow[1]+"</td>" +
+				        					"<td class='Strength'>"+allTDInOneRow[2]+"</td>" +
+				        					"<td class='equals'>"+allTDInOneRow[4]+"</td>" +
+				        					"<td class='price-per-pallet'>"+allTDInOneRow[5]+"</td>" +
+				        				"</tr>";
+				        			$("#ack-order-table tr:eq(" + (j) + ")").after(insertStr);
+				        		}
+				        	}
+				        	//remove current used cookie
+				        	var exp = new Date();
+			        	    exp.setTime(exp.getTime() - 1);
+				        	document.cookie = "TABLE_VALUES" + "=" + x1 + ";expires=" + exp.toGMTString();
+				        }
+				    }
+				}
+		)
+		
 		function submit() 
 		{
 			location.href = '/success';
 		}
+		
 		function setDTime(obj){
 			if(obj==0){
 				document.getElementById("D_Time").style.display="none";
