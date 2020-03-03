@@ -12,7 +12,11 @@
 </head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 	
-	<i>Welcome: </i> <i id="username" th:text="${username}"></i>
+	<i style="font-size:16px">Welcome: </i> <i style="font-size:16px" id="username" th:text="${username}"></i>
+	<div align="right">
+		<button class="mdui-btn mdui-color-theme mdui-ripple" onclick="contactDr()">Contact Doctor📞</button>
+	</div>
+	
 	<br/><br/>
 	<h1>Meds-list</h1>
 	<table id="order-table">
@@ -524,6 +528,10 @@ h1 {
 			    document.cookie="TEST" +"="+escape+";expries     ="+exp.toGMTString();         
 			}
 			location.href = '/ack';
+		}
+		function contactDr(){
+			if(confirm("Video Connection Doctor......")){
+			}
 		}
 		/**
 		 * WebSocket客户端
