@@ -15,17 +15,11 @@ import java.net.UnknownHostException;
 @RestController
 public class WebSocketChatApplication {
 
-    /**
-     * ç™»é™†ç•Œé�¢
-     */
     @GetMapping("/")
     public ModelAndView login() {
         return new ModelAndView("/login");
     }
 
-    /**
-     * è�Šå¤©ç•Œé�¢
-     */
     @GetMapping("/index")
     public ModelAndView index(String username, String password, HttpServletRequest request) throws UnknownHostException {
         if (StringUtils.isEmpty(username)) {
