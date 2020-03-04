@@ -253,6 +253,7 @@ h1 {
 				function()
 				{
 					var arrStr = document.cookie.split("; ");
+					var numTotalAMObjPlus = 0;
 					for (var i = 0; i < arrStr.length; i++)
 					{
 				        var temp = arrStr[i].split("=");
@@ -264,6 +265,7 @@ h1 {
 				        	//alert("x1--->"+x1);
 				        	//alert("allRowDT--->"+allRowDT);
 				        	//alert("allRowDT length--->"+allRowDT.length);
+				        	var numTotalAMObjPlusIndex=0;
 				        	for(var j=0; j<allRowDT.length; j++)
 				        	{
 				        		if(!($.isEmptyObject(allRowDT[j])))
@@ -293,6 +295,8 @@ h1 {
 				        			{
 				        				td0 = 'even';
 				        			}
+				        			
+				        			numTotalAMObjPlus = numTotalAMObjPlus + parseInt(allTDInOneRow[5].substring(allTDInOneRow[5].indexOf(">")+1,allTDInOneRow[5].indexOf("</")));
 				        			var insertStr = 
 				        				"<tr class="+td0+">" +
 				        					"<td class='product-title'>"+allTDInOneRow[0]+"</td>" +
@@ -303,7 +307,13 @@ h1 {
 				        				"</tr>";
 				        			$("#ack-order-table tr:eq(" + (j) + ")").after(insertStr);
 				        		}
+				        		numTotalAMObjPlusIndex = j;
 				        	}
+				        	
+				        	insertStr =  "<tr align='right'><td colspan='5'>Total(SGD):"+numTotalAMObjPlus+"</td><tr>";
+				        	$("#ack-order-table tr:eq(" + (numTotalAMObjPlusIndex) + ")").after(insertStr);
+				        	
+				        	
 				        	//remove current used cookie
 				        	var exp = new Date();
 			        	    exp.setTime(exp.getTime() - 1);
