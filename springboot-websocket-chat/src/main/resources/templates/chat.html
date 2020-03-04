@@ -15,7 +15,7 @@
 	<i style="font-size: 16px">Welcome: </i>
 	<i style="font-size: 16px" id="username" th:text="${username}"></i>
 	<div align="right">
-		<button class="mdui-btn mdui-color-theme mdui-ripple"
+		<button hidden = "hidden" id = "contactDrBtn" class="mdui-btn mdui-color-theme mdui-ripple"
 			onclick="contactDr()">Contact Doctor📞</button>
 	</div>
 
@@ -327,7 +327,7 @@
 	<br />
 	<h1>Order of Drugs</h1>
 	<div style="text-align: right;">
-		<button class="mdui-btn mdui-color-theme mdui-ripple"
+		<button hidden = "hidden" id = "GetorderBtn" class="mdui-btn mdui-color-theme mdui-ripple"
 			onclick="GetOrder()">GetOrder</button>
 	</div>
 	<table id="my-order-table">
@@ -349,7 +349,7 @@
 		</tr>
 	</table>
 	<div style="text-align: right;">
-		<button class="mdui-btn mdui-color-theme-accent mdui-ripple"
+		<button  hidden = "hidden" id = "submitBtn"  class="mdui-btn mdui-color-theme-accent mdui-ripple"
 			onclick="submit()">Submit</button>
 	</div>
 
@@ -534,12 +534,20 @@ h1 {
 			var username = $('#username').text();
 			if (username.startsWith("Dr.")) {
 				document.getElementById("RX-table").removeAttribute("hidden");
+				document.getElementById("ContactDrPage").removeAttribute("hidden");
+			}else{
+				document.getElementById("contactDrBtn").removeAttribute("hidden");
+				document.getElementById("submitBtn").removeAttribute("hidden");
+				document.getElementById("GetorderBtn").removeAttribute("hidden");
 			}
 
 		}
 
 		function addMed(trID) {
-			localStorage.setItem("info" + trID, trID);
+			var username = $('#username').text();
+			if (username.startsWith("Dr.")){
+				localStorage.setItem("info" + trID, trID);
+			}
 			var totalAMObj = $("#product-subtotal").val();
 			var numTotalAMObj = parseInt(totalAMObj);
 
@@ -592,7 +600,7 @@ h1 {
 		
 		function GetOrder() {
 
-			for (i = 7; i <= 22; i++) { 
+			for (i = 1; i <= 22; i++) { 
 				var trID = localStorage.getItem("infotr"+i);
 				if (trID == null){
 					continue;
